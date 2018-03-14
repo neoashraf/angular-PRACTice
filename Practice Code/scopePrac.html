@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Iteratiing over data</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="controllers/scopePrac.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-controller="scopePractice as ctrl">
+	<h2>Employees</h2>
+	<table>
+		<tr>
+			<th ng-click="doSort('name')">Name </th>
+			<th ng-click="doSort('city')">City </th>
+			<th ng-click="doSort('salary')">Salary</th>
+			<th ng-click="doSort('joined')">Joined</th>
+		</tr>
+		<tr  ng-repeat="eachone in ctrl.Employees">
+			<td>{{eachone.name}}</td>
+			<td>{{eachone.city}}</td>
+			<td>{{eachone.salary | currency:'BDT-'}}</td>
+			<td>{{eachone.joined | date}}</td>
+		</tr>
+	</table>
+</body>
+</html>
