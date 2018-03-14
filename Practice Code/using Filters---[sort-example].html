@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Iteratiing over data</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+	<script src="main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-init =" Employees=[ {joined:'2000-12-02', name:'Ashraf', city:'Dhaka', salary:'30000'},{joined:'2013-12-02', name:'Xshraf', city:'Bhaka', salary:'34000'},{joined:'2005-12-02', name:'Pshraf', city:'Xhaka', salary:'60000'}]">
+	<h2>Employees</h2>
+	<table>
+		<tr>
+			<th ng-click="sortBy='name'; reverse=!reverse">Name </th>
+			<th ng-click="sortBy='city'; reverse=!reverse">City </th>
+			<th ng-click="sortBy='salary'; reverse=!reverse">Salary </th>
+			<th ng-click="sortBy='joined'; reverse=!reverse">Joined </th>
+		</tr>
+		<tr  ng-repeat="eachone in Employees | orderBy:sortBy:reverse">
+			<td>{{eachone.name}}</td>
+			<td>{{eachone.city}}</td>
+			<td>{{eachone.salary | currency:'BDT-'}}</td>
+			<td>{{eachone.joined | date}}</td>
+		</tr>
+	</table>
+</body>
+</html>
